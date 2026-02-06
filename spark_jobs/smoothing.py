@@ -1,58 +1,34 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, lag, lead, coalesce, lit
+from pyspark.sql.functions import col, lag, lead, expr, percentile_approx
 from pyspark.sql.window import Window
 
 def main():
-    spark = SparkSession.builder \
-        .appName("Phase6.5_TimeSeriesSmoothing") \
-        .getOrCreate()
+    spark = SparkSession.builder.appName("Phase6.6_Budgetary_Scissors").getOrCreate()
+    spark.catalog.clearCache()
 
-    # 1. Load Raw Scores (From Phase 6)
-    print("[-] Reading Raw TF-IDF Scores from HDFS...")
-    # FIX: Port 8020
-    df = spark.read.option("header", "true") \
-        .csv("hdfs://namenode:8020/project/output/summaries") \
-        .select(
-            col("file"), 
-            col("start_time").cast("float"), 
-            col("tfidf_score").cast("float"),
-            col("token_id")
-        )
+    df = spark.read.option("header", "true").csv("hdfs://namenode:8020/project/output/summaries_hybrid") \
+              .withColumn("start_time", col("start_time").cast("double")) \
+              .withColumn("score", col("tfidf_score").cast("double"))
 
-    # 2. Define Time Window
-    # Partition by file, Order by time
-    window_spec = Window.partitionBy("file").orderBy("start_time")
-
-    # 3. Convolution (Gaussian Kernel [0.25, 0.5, 0.25])
-    print("[-] Applying Gaussian Smoothing Kernel...")
+    window_time = Window.partitionBy("file").orderBy("start_time")
     
-    # Get neighbors
-    # COALESCE FIX: If prev_score is NULL (start of video), use current score. 
-    # This prevents the score from artificially dropping to 0 at the edges.
-    df_neighbors = df.withColumn("prev_score", coalesce(lag("tfidf_score", 1).over(window_spec), col("tfidf_score"))) \
-                     .withColumn("next_score", coalesce(lead("tfidf_score", 1).over(window_spec), col("tfidf_score")))
+    # Smooth the scores to avoid "jittery" single-chunk selections
+    df_smooth = df.withColumn("p1", lag("score", 1, 0.0).over(window_time)) \
+                  .withColumn("n1", lead("score", 1, 0.0).over(window_time)) \
+                  .withColumn("smooth_score", (col("p1") * 0.2) + (col("score") * 0.6) + (col("n1") * 0.2))
 
-    # Apply Math: 25% Prev + 50% Curr + 25% Next
-    df_smoothed = df_neighbors.withColumn(
-        "smoothed_score",
-        (col("prev_score") * 0.25) + 
-        (col("tfidf_score") * 0.50) + 
-        (col("next_score") * 0.25)
-    )
+    # FORCED VALLEYS: Only keep chunks in the top 40% of the video's scores.
+    window_file = Window.partitionBy("file")
+    df_threshold = df_smooth.withColumn("threshold", percentile_approx("smooth_score", 0.60).over(window_file))
+    
+    # We filter for high-quality peaks only
+    final_chunks = df_threshold.filter(col("smooth_score") >= col("threshold")) \
+                               .filter(col("smooth_score") > 0.35)
 
-    # 4. Save Smoothed Scores
-    print("[-] Saving Smoothed Data to HDFS...")
-    
-    # We rename 'smoothed_score' back to 'tfidf_score' so Phase 7 works without changes
-    output_df = df_smoothed.select(
-        "file", "start_time", "token_id", 
-        col("smoothed_score").alias("tfidf_score") 
-    )
-    
-    output_df.write.mode("overwrite").option("header", "true") \
-        .csv("hdfs://namenode:8020/project/output/summaries_smoothed")
-        
-    print("[-] Time Series Smoothing Complete.")
+    final_chunks.select("file", "start_time", col("smooth_score").alias("tfidf_score")) \
+                .write.mode("overwrite").option("header", "true").csv("hdfs://namenode:8020/project/output/summaries_smoothed")
+
+    print("[-] Phase 6.6 Complete: High-pass budgetary filter applied.")
 
 if __name__ == "__main__":
     main()

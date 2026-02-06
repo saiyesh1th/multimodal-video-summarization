@@ -23,27 +23,21 @@ if ($LASTEXITCODE -ne 0) {
 # ---------------------------------------------------------
 # 2. EXTRACT VIDEOS TO HOST
 # ---------------------------------------------------------
+# ---------------------------------------------------------
+# 2. EXTRACT VIDEOS TO HOST (Hardened Version)
+# ---------------------------------------------------------
 Write-Host "    [2/2] Extracting Videos to Host..." -ForegroundColor Yellow
 
 $local_dest = "results/summaries"
-if (-not (Test-Path $local_dest)) {
-    New-Item -ItemType Directory -Force -Path $local_dest | Out-Null
-}
+if (-not (Test-Path $local_dest)) { New-Item -ItemType Directory -Force -Path $local_dest }
 
-# Copy from Container (/opt/data/final_summaries) -> Host
-# Since /opt/data is mounted to 'data', we can actually check there directly!
-# But let's verify.
+# Try Docker CP first (most reliable way to get files out of a volume)
+docker cp spark:/opt/data/final_summaries/. $local_dest
 
-if (Test-Path "data/final_summaries") {
-    Copy-Item "data/final_summaries/*.mp4" -Destination $local_dest -Force
-    $count = (Get-ChildItem $local_dest -Filter *.mp4).Count
-    
-    if ($count -gt 0) {
-        Write-Host "[-] Success! $count Summary Videos are ready." -ForegroundColor Green
-        Write-Host "[-] Location: $local_dest" -ForegroundColor Cyan
-    } else {
-        Write-Host "[!] Job finished, but no videos found." -ForegroundColor Red
-    }
+$count = (Get-ChildItem $local_dest -Filter *.mp4).Count
+
+if ($count -gt 0) {
+    Write-Host "[-] Success! $count Summary Videos are ready." -ForegroundColor Green
 } else {
-    Write-Host "[!] Output folder missing in container volume." -ForegroundColor Red
+    Write-Host "[!] Critical Error: No .mp4 files found in container or local summaries folder." -ForegroundColor Red
 }

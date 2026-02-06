@@ -81,4 +81,4 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host "    [4/4] Verifying Output..." -ForegroundColor Cyan
 docker exec namenode hdfs dfs -ls /project/features/audio_chunks
 
-Write-Host "[-] Pipeline Finished Successfully." -ForegroundColor Green
+Write-Host "[-] Pipeline Finished Successfully." -ForegroundColor Green 

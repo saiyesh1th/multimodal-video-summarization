@@ -21,21 +21,23 @@ if ($LASTEXITCODE -ne 0) {
     exit 1
 }
 
+
 # ---------------------------------------------------------
-# VERIFY OUTPUT (The Robust Way)
+# 2. VERIFY OUTPUT (Parquet Style)
 # ---------------------------------------------------------
 Write-Host "    [2/2] Verifying Output..." -ForegroundColor Yellow
 
-# FIX 2: Check for actual CSV data files, not just _SUCCESS
-$csv_files = docker exec namenode hdfs dfs -ls /project/output/summaries | Select-String ".csv"
+# Check for the _SUCCESS flag
+$success_check = docker exec namenode hdfs dfs -ls /project/output/summaries/_SUCCESS 2>$null
 
-if (-not $csv_files) {
-    Write-Host "[!] Job finished, but no CSV files found in output!" -ForegroundColor Red
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "[!] Job finished, but Parquet output directory is missing or incomplete!" -ForegroundColor Red
     exit 1
 }
 
-Write-Host "[-] Phase 6 Complete: Summaries generated." -ForegroundColor Green
+Write-Host "[-] Phase 6 Complete: Parquet dataset generated." -ForegroundColor Green
 
-# Preview
-Write-Host "[-] Preview of Generated Summaries:" -ForegroundColor Cyan
-docker exec namenode hdfs dfs -cat /project/output/summaries/*.csv | Select-Object -First 10
+# Correct Preview: Running a one-liner via pyspark
+Write-Host "[-] Previewing Data (First 5 rows):" -ForegroundColor Cyan
+# docker exec spark /opt/spark/bin/spark-submit -e "spark.read.parquet('/project/output/summaries').show(5)" 2>$null
+docker exec spark /opt/spark/bin/pyspark --master local[*] --command "spark.read.parquet('/project/output/summaries').show(5); exit()"

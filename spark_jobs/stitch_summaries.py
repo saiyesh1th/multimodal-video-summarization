@@ -1,136 +1,86 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col
-import subprocess
-import os
-import shutil
-import sys
+from pyspark.sql.functions import col, regexp_replace
+import subprocess, os, shutil
+
+def get_video_duration(path):
+    try:
+        cmd = ["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=noprint_wrappers=1:nokey=1", path]
+        return float(subprocess.check_output(cmd).decode().strip())
+    except: return 0.0
 
 def main():
-    spark = SparkSession.builder \
-        .appName("Phase8_Stitching") \
-        .getOrCreate()
+    spark = SparkSession.builder.appName("Phase8_Dynamic_Budget_Director").getOrCreate()
+    spark.catalog.clearCache()
 
-    # ==========================================
-    # 0. SAFETY CHECKS
-    # ==========================================
-    if shutil.which("ffmpeg") is None:
-        print("[Fatal] FFmpeg not found!")
-        sys.exit(1)
+    output_base, temp_dir, raw_dir = "/opt/data/final_summaries", "/opt/data/temp_chunks", "/opt/data/raw_videos"
+    for d in [output_base, temp_dir]:
+        if os.path.exists(d): shutil.rmtree(d); os.makedirs(d)
 
-    # ==========================================
-    # 1. READ & FILTER METADATA
-    # ==========================================
-    print("[-] Reading Visual Metadata from HDFS...")
-    # FIX: Port 8020
-    df = spark.read.option("header", "true") \
-        .csv("hdfs://namenode:8020/project/output/visual_metadata")
-    
-    # Cast columns
-    df = df.withColumn("start_time", col("start_time").cast("float")) \
-           .withColumn("blur_score", col("blur_score").cast("float"))
+    df_v = spark.read.option("header", "true").csv("hdfs://namenode:8020/project/output/visual_metadata").withColumn("start_time", col("start_time").cast("double"))
+    df_a = spark.read.option("header", "true").csv("hdfs://namenode:8020/project/output/summaries_smoothed").withColumn("start_time", col("start_time").cast("double"))
 
-    # FILTER: "The Multimodal Gate"
-    # We drop frames that are too blurry (Score < 50)
-    print("[-] Filtering out blurry segments (Blur Score < 50)...")
-    clean_df = df.filter(col("blur_score") > 50.0) \
-                 .orderBy("file", "start_time")
-    
-    # Collect work items
-    rows = clean_df.collect()
+    df_v = df_v.withColumn("base", regexp_replace(col("file"), "\\.mp4$", ""))
+    df_a = df_a.withColumn("base", regexp_replace(col("file"), "\\.wav$", ""))
+
+    fused_rows = df_v.join(df_a, ["base", "start_time"]) \
+                     .select(df_v["file"].alias("vid"), "start_time", df_a["tfidf_score"].alias("score")) \
+                     .collect()
+
+    video_data = {}
+    for row in fused_rows:
+        v = row['vid']
+        if v not in video_data:
+            dur = get_video_duration(f"{raw_dir}/{v}")
+            # ENFORCE 20% Budget
+            video_data[v] = {"chunks": [], "limit": max(30.0, dur * 0.20), "orig_dur": dur}
+        video_data[v]["chunks"].append({"t": float(row['start_time']), "s": float(row['score'])})
+
     work_plan = {}
-    
-    for row in rows:
-        vid = row['file']
-        # Safety: Ensure extension is mp4
-        if vid.endswith(".wav"): vid = vid.replace(".wav", ".mp4")
+    for vid, data in video_data.items():
+        # Rank by importance
+        sorted_chunks = sorted(data["chunks"], key=lambda x: x['s'], reverse=True)
+        keep_count = int(data["limit"] / 5.0)
+        elite_chunks = sorted(sorted_chunks[:keep_count], key=lambda x: x['t'])
         
-        if vid not in work_plan:
-            work_plan[vid] = []
-        work_plan[vid].append(row['start_time'])
+        # 0.5s Bridge logic
+        work_plan[vid] = []
+        for chunk in elite_chunks:
+            t = chunk['t']
+            if work_plan[vid] and t <= (work_plan[vid][-1][1] + 1.0):
+                work_plan[vid][-1] = (work_plan[vid][-1][0], t + 5.0)
+            else:
+                work_plan[vid].append((t, t + 5.0))
 
-    print(f"[-] Ready to summarize {len(work_plan)} videos.")
+        # HARD EDITORIAL CAP: Max 1 segment per 45s of video
+        MAX_SEGMENTS = max(3, int(data["orig_dur"] / 45))
+        if len(work_plan[vid]) > MAX_SEGMENTS:
+            print(f"[Cap] {vid}: Trimming to {MAX_SEGMENTS} elite segments.")
+            work_plan[vid] = sorted(work_plan[vid], key=lambda x: x[1]-x[0], reverse=True)[:MAX_SEGMENTS]
+            work_plan[vid] = sorted(work_plan[vid], key=lambda x: x[0])
 
-    # ==========================================
-    # 2. STITCHING ENGINE
-    # ==========================================
-    output_base = "/opt/data/final_summaries"
-    if os.path.exists(output_base):
-        shutil.rmtree(output_base)
-    os.makedirs(output_base)
-    
-    temp_dir = "/opt/data/temp_chunks"
-    if os.path.exists(temp_dir):
-        shutil.rmtree(temp_dir)
-    os.makedirs(temp_dir)
-
-    for vid_file, timestamps in work_plan.items():
-        if not timestamps: 
-            continue
-
-        print(f"[-] Processing {vid_file} ({len(timestamps)} chunks)...")
-        
-        input_path = f"/opt/data/raw_videos/{vid_file}"
-        if not os.path.exists(input_path):
-            print(f"    [Skip] Raw video not found: {input_path}")
-            continue
-
-        concat_list_path = f"{temp_dir}/list_{vid_file}.txt"
+    # 3. ASSEMBLY
+    for vid, segments in work_plan.items():
+        print(f"[-] Assembling {vid}: {len(segments)} segments planned.")
+        input_path = f"{raw_dir}/{vid}"
         valid_chunks = []
-        
-        # A. Cut Segments
-        for i, start_t in enumerate(timestamps):
-            chunk_name = f"chunk_{vid_file}_{i}.mp4"
-            chunk_path = f"{temp_dir}/{chunk_name}"
+        for i, (s_t, e_t) in enumerate(segments):
+            chunk = f"{temp_dir}/scene_{i}_{vid}"
             
-            # Cut 5 seconds, re-encoding for concat safety
-            cmd_cut = [
-                "ffmpeg", "-y",
-                "-ss", str(start_t),
-                "-t", "5",
-                "-i", input_path,
-                "-c:v", "libx264", "-preset", "ultrafast",
-                "-c:a", "aac",
-                "-loglevel", "error",
-                chunk_path
-            ]
+            # THE NEGATIVE SHIELD
+            actual_end = max(s_t + 1.0, e_t)
+            p_start, p_dur = max(0, s_t - 0.25), (actual_end - s_t) + 0.5
             
-            res = subprocess.run(cmd_cut)
-            if res.returncode == 0 and os.path.exists(chunk_path):
-                valid_chunks.append(chunk_path)
-        
-        if not valid_chunks:
-            print(f"    [Warn] No valid chunks generated for {vid_file}")
-            continue
+            cmd = ["ffmpeg", "-y", "-ss", str(p_start), "-t", str(p_dur), "-i", input_path, 
+                   "-c:v", "libx264", "-crf", "26", "-preset", "veryfast", "-c:a", "aac", "-loglevel", "error", chunk]
+            if subprocess.run(cmd).returncode == 0: valid_chunks.append(chunk)
 
-        # B. Create Concat List
-        with open(concat_list_path, 'w') as f:
-            for chunk in valid_chunks:
-                f.write(f"file '{chunk}'\n")
-        
-        # C. Stitch
-        final_output = f"{output_base}/Summary_{vid_file}"
-        
-        cmd_stitch = [
-            "ffmpeg", "-y",
-            "-f", "concat",
-            "-safe", "0",
-            "-i", concat_list_path,
-            "-c", "copy",
-            "-loglevel", "error",
-            final_output
-        ]
-        
-        subprocess.run(cmd_stitch)
-        
-        if os.path.exists(final_output):
-            print(f"    [SUCCESS] Created {final_output}")
-        
-        # Cleanup temp list
-        if os.path.exists(concat_list_path): os.remove(concat_list_path)
+        if valid_chunks:
+            list_f = f"{temp_dir}/list_{vid}.txt"
+            with open(list_f, "w") as f:
+                for c in valid_chunks: f.write(f"file '{c}'\n")
+            subprocess.run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", list_f, "-c", "copy", "-loglevel", "error", f"{output_base}/summary_{vid}"])
 
-    # Final cleanup
-    shutil.rmtree(temp_dir)
-    print("[-] Phase 8 Complete. Check /opt/data/final_summaries")
+    print("[-] Phase 8 Complete. Victory!")
 
 if __name__ == "__main__":
     main()

@@ -94,11 +94,12 @@ def calculate_mfcc_scratch(signal_list):
     except Exception as e:
         # Fallback for corrupt chunks to avoid crashing the job
         return [0.0] * 13
+    
 
 def main():
-    spark = SparkSession.builder.appName("Phase5_MFCC_Scratch").getOrCreate()
+    spark = SparkSession.builder.appName("Phase5_HighRes_MFCC").getOrCreate()
 
-    # 1. Read Chunks
+    # 1. Read Chunks (Port 8020)
     print("[-] Reading Audio Chunks from HDFS...")
     df = spark.read.parquet("hdfs://namenode:8020/project/features/audio_chunks")
 
@@ -106,16 +107,43 @@ def main():
     manual_mfcc_udf = udf(calculate_mfcc_scratch, ArrayType(FloatType()))
 
     # 3. Apply Transformation
-    print("[-] Computing MFCCs (Pure NumPy with Ortho DCT)...")
+    print("[-] Computing High-Res MFCCs...")
+    # This remains the same, but because we are moving to O(N) attention, 
+    # we can handle more data easily.
     df_features = df.withColumn("mfcc", manual_mfcc_udf(df["samples"]))
 
-    # 4. Select Final Columns
-    df_final = df_features.select("file", "start_time", "mfcc")
-
-    # 5. Save
+    # 4. Save to the path Phase 6.5 expects
     print("[-] Saving MFCC vectors...")
-    df_final.write.mode("overwrite").parquet("hdfs://namenode:8020/project/features/mfcc_vectors")
-    print("[-] Phase 5 Complete.")
+    df_features.select("file", "start_time", "mfcc") \
+        .write.mode("overwrite") \
+        .parquet("hdfs://namenode:8020/project/features/mfcc_vectors")
+        
+    print("[-] Phase 5 Complete. Ready for O(N) Attention.")
 
 if __name__ == "__main__":
     main()
+
+# def main():
+#     spark = SparkSession.builder.appName("Phase5_MFCC_Scratch").getOrCreate()
+
+#     # 1. Read Chunks
+#     print("[-] Reading Audio Chunks from HDFS...")
+#     df = spark.read.parquet("hdfs://namenode:8020/project/features/audio_chunks")
+
+#     # 2. Register UDF 
+#     manual_mfcc_udf = udf(calculate_mfcc_scratch, ArrayType(FloatType()))
+
+#     # 3. Apply Transformation
+#     print("[-] Computing MFCCs (Pure NumPy with Ortho DCT)...")
+#     df_features = df.withColumn("mfcc", manual_mfcc_udf(df["samples"]))
+
+#     # 4. Select Final Columns
+#     df_final = df_features.select("file", "start_time", "mfcc")
+
+#     # 5. Save
+#     print("[-] Saving MFCC vectors...")
+#     df_final.write.mode("overwrite").parquet("hdfs://namenode:8020/project/features/mfcc_vectors")
+#     print("[-] Phase 5 Complete.")
+
+# if __name__ == "__main__":
+#     main()
