@@ -74,8 +74,8 @@ def main():
         transcripts_csv="./results/transcripts.csv", 
         summaries_csv="./results/final_summary.csv", 
         tokenizer=tokenizer, 
-        max_src_len=32, 
-        max_tgt_len=16
+        max_src_len=256, 
+        max_tgt_len=150
     )
     dataloader = DataLoader(dataset, batch_size=2, shuffle=True)
     
@@ -87,16 +87,16 @@ def main():
         num_heads=4, 
         num_layers=2, 
         d_ff=512,
-        max_seq_len=64, # Matches max lengths
+        max_seq_len=512, # Must fit both src and tgt lengths
         dropout=0.1
     ).to(device)
     
     # 4. Setup Optimization Loop
     PAD_ID = 256
     criterion = nn.CrossEntropyLoss(ignore_index=PAD_ID)
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.0005)
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.0003)
     
-    epochs = 5
+    epochs = 800
     print(f"[*] Commencing Training for {epochs} Epochs...")
     
     for epoch in range(1, epochs + 1):

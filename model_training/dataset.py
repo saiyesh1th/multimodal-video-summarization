@@ -1,16 +1,9 @@
 import os
 import json
+import re
+import math
 import torch
 from torch.utils.data import Dataset
-
-# -------------------------------------------------------------
-# PHASE 2: CUSTOM PYTORCH DATASET & DATALOADER
-# -------------------------------------------------------------
-# Reads the trained tokenizer configuration and prepares 
-# correctly paddded and formatted Seq2Seq tensors directly
-# from the transcribed audio CSVs.
-# -------------------------------------------------------------
-
 import pandas as pd
 
 class BPETokenizerInference:
@@ -86,10 +79,105 @@ class BPETokenizerInference:
         raw_bytes = b"".join(self.vocab.get(idx, b"") for idx in filtered_ids)
         return raw_bytes.decode("utf-8", errors="replace")
 
+
+# Common English stopwords to exclude from TF-IDF scoring
+_STOPWORDS = {
+    'i','me','my','myself','we','our','ours','ourselves','you','your','yours',
+    'yourself','yourselves','he','him','his','himself','she','her','hers',
+    'herself','it','its','itself','they','them','their','theirs','themselves',
+    'what','which','who','whom','this','that','these','those','am','is','are',
+    'was','were','be','been','being','have','has','had','having','do','does',
+    'did','doing','a','an','the','and','but','if','or','because','as','until',
+    'while','of','at','by','for','with','about','against','between','into',
+    'through','during','before','after','above','below','to','from','up','down',
+    'in','out','on','off','over','under','again','further','then','once','here',
+    'there','when','where','why','how','all','both','each','few','more','most',
+    'other','some','such','no','nor','not','only','own','same','so','than',
+    'too','very','s','t','can','will','just','don','should','now','let','go',
+    'get','got','going','come','came','see','know','like','make','put','take',
+    'us','oh','ok','yeah','yes','alright','well','hey','hi'
+}
+
+def extractive_summary(text, num_sentences=5):
+    """
+    Improved custom TF-IDF extractive summarizer.
+    Key improvements over the naive version:
+    - Stopword filtering: common words don't pollute scores
+    - Minimum word count: eliminates extremely short filler sentences
+    - Sum-based TF-IDF (not average per unique word): longer, richer
+      sentences naturally score higher than short isolated ones
+    - Sublinear TF: log(1+tf) dampens the effect of repetition
+    - Position weighting: slight bonus for sentences appearing early
+      (they tend to establish the main topic)
+    No pretrained models -- fully from scratch.
+    """
+    # 1. Tokenize into sentences
+    sentences = re.split(r'(?<=[.!?])\s+', text.strip())
+    sentences = [s.strip() for s in sentences if len(s.strip()) > 10]
+    if len(sentences) <= num_sentences:
+        return ' '.join(sentences)
+
+    # 2. Filter very short sentences (< 8 words) as they're usually filler
+    MIN_WORDS = 8
+    valid_indices = [i for i, s in enumerate(sentences)
+                     if len(re.findall(r'[a-z]+', s.lower())) >= MIN_WORDS]
+    # Fall back to all sentences if filtering is too aggressive
+    if len(valid_indices) < num_sentences:
+        valid_indices = list(range(len(sentences)))
+
+    def content_words(s):
+        """Extract meaningful content words (no stopwords)."""
+        return [w for w in re.findall(r'[a-z]+', s.lower())
+                if w not in _STOPWORDS and len(w) > 2]
+
+    # 3. Compute sublinear TF per sentence (log(1 + count))
+    tf_raw = []
+    for s in sentences:
+        w = content_words(s)
+        counts = {}
+        for word in w:
+            counts[word] = counts.get(word, 0) + 1
+        # Sublinear TF: log(1 + count) / len(sentence in words)
+        n = max(len(re.findall(r'[a-z]+', s.lower())), 1)
+        tf_raw.append({k: math.log(1 + v) / n for k, v in counts.items()})
+
+    # 4. Compute IDF across all sentences
+    N = len(sentences)
+    df_counts = {}
+    for sent_tf in tf_raw:
+        for word in sent_tf:
+            df_counts[word] = df_counts.get(word, 0) + 1
+    idf = {w: math.log((N + 1) / (1 + df)) for w, df in df_counts.items()}
+
+    # 5. Score = SUM of TF-IDF over all content words in the sentence
+    #    (not average -- longer, information-dense sentences score higher)
+    scores = []
+    for i, sent_tf in enumerate(tf_raw):
+        if sent_tf:
+            # Sum-based score
+            score = sum(sent_tf[w] * idf.get(w, 0) for w in sent_tf)
+            # Position boost: reward earlier sentences slightly
+            # Sentences in the first 30% of the transcript get +10% bonus
+            position_ratio = i / N
+            if position_ratio < 0.30:
+                score *= 1.10
+        else:
+            score = 0.0
+        scores.append(score)
+
+    # 6. Only consider valid (long enough) sentences, pick top-n
+    #    sorted by position to preserve reading order
+    valid_scores = [(scores[i], i) for i in valid_indices]
+    valid_scores.sort(key=lambda x: x[0], reverse=True)
+    top_indices = sorted([idx for _, idx in valid_scores[:num_sentences]])
+    return ' '.join(sentences[i] for i in top_indices)
+
+
+
 class SummarizationDataset(Dataset):
-    def __init__(self, transcripts_csv, summaries_csv, tokenizer, max_src_len=512, max_tgt_len=128):
+    def __init__(self, transcripts_csv, summaries_csv, tokenizer, max_src_len=512, max_tgt_len=150):
         """
-        Loads the actual ASR transcripts and target TF-IDF summary keyframes.
+        Loads the actual ASR transcripts and builds extractive target summaries.
         """
         self.tokenizer = tokenizer
         self.max_src = max_src_len
@@ -99,11 +187,9 @@ class SummarizationDataset(Dataset):
         
         # Load the CSV data
         df_trans = pd.read_csv(transcripts_csv)
-        df_summ = pd.read_csv(summaries_csv)
         
         # Clean up appended headers from inner rows
         df_trans = df_trans[df_trans['start_time'] != 'start_time'].copy()
-        df_summ = df_summ[df_summ['start_time'] != 'start_time'].copy()
         
         # Group by video file
         grouped_trans = df_trans.groupby('file')
@@ -115,13 +201,8 @@ class SummarizationDataset(Dataset):
             # The full source text is the entire transcript joined
             src_text = " ".join(group['text'].astype(str).tolist())
             
-            # Since the transcript generator in Phase 1 outputs the entire text block 
-            # at timestamp 0.0, we cannot perform a sentence-by-sentence match with 
-            # the TF-IDF dataframe. For the sake of testing phase 4 architecture:
-            # We will use the first 20% of the transcript string as the target summary proxy.
-            
-            split_idx = max(int(len(src_text) * 0.2), 30)
-            tgt_text = src_text[:split_idx] + " summary ."
+            # Build an extractive 5-sentence summary using our custom TF-IDF scorer
+            tgt_text = extractive_summary(src_text, num_sentences=5)
             
             if src_text.strip() and tgt_text.strip():
                 self.samples.append((src_text, tgt_text))
@@ -174,8 +255,8 @@ if __name__ == "__main__":
         transcripts_csv="./results/transcripts.csv", 
         summaries_csv="./results/final_summary.csv", 
         tokenizer=tokenizer, 
-        max_src_len=32, 
-        max_tgt_len=16
+        max_src_len=256, 
+        max_tgt_len=150
     )
     print(f"[*] Loaded Actual Transcript Dataset. Size: {len(dataset)}")
     
