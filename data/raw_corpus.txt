@@ -1,0 +1,900 @@
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .
+hello world . this is a test transcript .
+the speaker in the audio says hello world .
+we are building a deep learning model from scratch .
+this model will summarize transcripts .
+transformers use self attention mechanisms .
+byte pair encoding is a compression technique used for tokenization .
+hello , this is another audio transcript test .
+summarizing audio is a complex natural language processing task .
+learning from scratch requires a lot of data .

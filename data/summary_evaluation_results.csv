@@ -1,0 +1,4 @@
+video,original_duration_sec,summary_duration_sec,compression_ratio,segments,timeline_span_sec,timeline_coverage,diversity_score,highlight_density,importance_coverage,avg_importance,redundancy_score,temporal_precision,temporal_recall,temporal_f1
+1-SJGQ2HLp8.mp4,395.04,75.0,0.19,6,235.0,0.595,0.08,0.0152,0.187,0.92,0.0,0.467,1.0,0.636
+e9rODVcvYZY.mp4,70.01,30.0,0.429,2,35.0,0.5,0.067,0.0286,0.274,0.833,0.0,0.333,1.0,0.5
+8MVo7fje_oE.mp4,244.46,45.0,0.184,3,60.0,0.245,0.067,0.0123,0.156,0.926,0.0,0.444,1.0,0.615

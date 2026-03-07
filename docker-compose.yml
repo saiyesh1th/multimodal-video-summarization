@@ -1,5 +1,6 @@
 version: "3.8"
 services:
+
   namenode:
     image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
     container_name: namenode
@@ -7,9 +8,9 @@ services:
       - CLUSTER_NAME=video_cluster
       - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
     ports:
-      - "9870:9870"  # Web UI
-      - "8020:8020"  # Internal HDFS communication
-      - "9000:9000"  # External client access
+      - "9870:9870" # Web UI
+      - "8020:8020" # Internal HDFS communication
+      - "9000:9000" # External client access
     volumes:
       - namenode_data:/hadoop/dfs/name
 
@@ -47,7 +48,7 @@ services:
     container_name: spark-worker
     environment:
       - SPARK_MODE=worker
-      - SPARK_WORKER_CORES=2
+      - SPARK_WORKER_CORES=18
       - SPARK_WORKER_MEMORY=2G
     # Explicitly point to the master container
     command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark:7077
@@ -57,6 +58,15 @@ services:
     depends_on:
       - spark
 
+  mongo:
+    image: mongo:6
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
 volumes:
   namenode_data:
   datanode_data:
+  mongo_data:

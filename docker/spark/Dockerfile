@@ -21,7 +21,11 @@ RUN pip install --upgrade pip && \
     numpy \
     scipy \
     soundfile \
-    scikit-learn
+    scikit-learn \
+    pandas \
+    pyarrow \
+    torch \
+    openai-whisper
 
 # Switch back to the default Spark user (185 is the standard ID for this image)
 USER 185

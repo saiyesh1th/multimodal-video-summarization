@@ -9,7 +9,7 @@ MANIFEST_DIR = "data/manifests"
 CSV_PATH = os.path.join(MANIFEST_DIR, "HowTo100M_v1.csv")
 JSON_PATH = os.path.join(MANIFEST_DIR, "caption.json")
 OUTPUT_CAPTIONS_CSV = os.path.join(MANIFEST_DIR, "processed_captions.csv")
-TARGET_GB = 2.0 
+TARGET_GB = 5.0 
 
 def get_dir_size_gb(path):
     total = 0

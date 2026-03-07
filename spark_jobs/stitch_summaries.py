@@ -14,7 +14,8 @@ def main():
 
     output_base, temp_dir, raw_dir = "/opt/data/final_summaries", "/opt/data/temp_chunks", "/opt/data/raw_videos"
     for d in [output_base, temp_dir]:
-        if os.path.exists(d): shutil.rmtree(d); os.makedirs(d)
+        if os.path.exists(d): shutil.rmtree(d)
+        os.makedirs(d)
 
     df_v = spark.read.option("header", "true").csv("hdfs://namenode:8020/project/output/visual_metadata").withColumn("start_time", col("start_time").cast("double"))
     df_a = spark.read.option("header", "true").csv("hdfs://namenode:8020/project/output/summaries_smoothed").withColumn("start_time", col("start_time").cast("double"))
